@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo Nospi - La Magia del Cobro</title>
-    <style>
-        body { margin: 0; background: #000; font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
-        video { width: 100%; max-width: 500px; border-radius: 15px; }
-        #btn-whatsapp {
-            display: none; /* Escondido al inicio */
-            margin-top: 20px;
-            padding: 15px 30px;
-            background-color: #25d366;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-    </style>
+   <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black; /* Fondo negro para que no se vea feo si sobra espacio */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #videoNospi {
+        width: 100vw;       /* Ocupa todo el ancho de la pantalla */
+        height: auto;       /* Mantiene la proporción original para no recortar el logo */
+        max-height: 80vh;   /* Deja espacio abajo para que el botón de WhatsApp no tape el logo */
+        object-fit: contain; /* Asegura que el video se vea completo sin recortes */
+    }
+</style>
 </head>
 <body>
 
