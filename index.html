@@ -49,11 +49,19 @@
 </head>
 <body>
 
-    <script>
-    // El botón está escondido al principio (display: none)
+  <a href="https://wa.me/tu_numero" id="botonWhatsApp" style="display: none; background-color: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000;">
+    ¡Quiero esta magia en mi negocio!
+</a>
+
+<script>
+    console.log("El cronómetro ha comenzado..."); // Esto es para que revises en la consola
     setTimeout(function() {
-        document.getElementById('botonWhatsApp').style.display = 'block';
-    }, 20000); // 20000 milisegundos = 20 segundos. ¡Cámbialo según tu video!
+        var boton = document.getElementById('botonWhatsApp');
+        if (boton) {
+            boton.style.setProperty('display', 'block', 'important');
+            console.log("¡El botón debería ser visible ahora!");
+        }
+    }, 20000); // 20 segundos exactos
 </script>
 
     <video id="videoNospi" autoplay muted playsinline>
