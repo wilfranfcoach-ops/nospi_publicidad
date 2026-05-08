@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Nospi - La Magia del Cobro</title>
+    <style>
+        body { margin: 0; background: #000; font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        video { width: 100%; max-width: 500px; border-radius: 15px; }
+        #btn-whatsapp {
+            display: none; /* Escondido al inicio */
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <video id="videoNospi" autoplay muted playsinline>
+        <source src="Video Nospi.mp4" type="video/mp4">
+        Tu navegador no soporta videos.
+    </video>
+
+    <a href="https://wa.link/TU_CODIGO_AQUI" id="btn-whatsapp">
+        ¡QUIERO ESTA MAGIA EN MI NEGOCIO! 🚀
+    </a>
+
+    <script>
+        const video = document.getElementById('videoNospi');
+        const btn = document.getElementById('btn-whatsapp');
+
+        // Aparecer el botón cuando falte poco para terminar (segundo 15)
+        video.ontimeupdate = function() {
+            if (video.currentTime >= 15) {
+                btn.style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>
