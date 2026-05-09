@@ -6,61 +6,73 @@
     <title>Demo Nospi - La Magia del Cobro</title>
     <style>
         body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: black; color: white;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            font-family: sans-serif; overflow: hidden;
         }
 
         #videoNospi {
-            width: 100vw;
-            height: auto;
-            max-height: 80vh;
+            display: none; /* Escondido hasta que den Play */
+            width: 100vw; height: auto; max-height: 80vh;
             object-fit: contain;
         }
 
-        #btn-whatsapp {
-            display: none; /* Inicia oculto */
+        /* Pantalla de inicio para activar audio */
+        #capa-inicio {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .boton-play {
             background-color: #25d366;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            position: fixed;
-            bottom: 30px;
-            z-index: 1000;
-            font-family: sans-serif;
+            color: white; padding: 20px 40px;
+            border-radius: 50px; font-size: 1.2em;
+            font-weight: bold; border: none;
+            box-shadow: 0px 4px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        #btn-whatsapp {
+            display: none;
+            background-color: #25d366; color: white;
+            padding: 15px 30px; border-radius: 50px;
+            text-decoration: none; font-weight: bold;
+            position: fixed; bottom: 35px; z-index: 1000;
             box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
 
-    <video id="videoNospi" autoplay muted playsinline>
+    <div id="capa-inicio" onclick="comenzarMagia()">
+        <button class="boton-play">🔊 TOCAR PARA VER CON AUDIO</button>
+        <p style="margin-top: 15px; color: #aaa;">Descubre la magia de Nospi</p>
+    </div>
+
+    <video id="videoNospi" playsinline>
         <source src="video3.mp4" type="video/mp4">
     </video>
 
-    <a href="https://wa.me/573104113333?text=Hola%20Wilfran,%20quiero%20la%20magia%20de%20Nospi" id="btn-whatsapp">
+    <a href="https://wa.link/5wxed9" id="btn-whatsapp">
         ¡QUIERO ESTA MAGIA EN MI NEGOCIO!
     </a>
 
     <script>
-        // Este script es un reloj independiente. No le pregunta al video.
-        // A los 15 segundos (15000ms) ejecuta la orden.
-        setTimeout(function() {
-            var elBoton = document.getElementById('btn-whatsapp');
-            if (elBoton) {
-                elBoton.style.display = 'block';
-                console.log("¡Botón activado por cronómetro!");
-            }
-        }, 15000); 
+        const video = document.getElementById('videoNospi');
+        const capa = document.getElementById('capa-inicio');
+        const btn = document.getElementById('btn-whatsapp');
+
+        function comenzarMagia() {
+            capa.style.display = 'none'; // Borra el botón de inicio
+            video.style.display = 'block'; // Muestra el video
+            video.play(); // ¡Aquí el video suena porque el usuario hizo clic!
+            
+            // Iniciamos el cronómetro de 15 segundos después del clic
+            setTimeout(function() {
+                btn.style.display = 'block';
+            }, 15000);
+        }
     </script>
     
 </body>
