@@ -20,7 +20,6 @@
             object-fit: contain;
         }
 
-        /* Degradado basado en tu Logo Nospi */
         .gradiente-nospi {
             background: linear-gradient(90deg, #0045AD 0%, #00AEEF 50%, #7AC143 100%);
             border: none;
@@ -33,10 +32,6 @@
             justify-content: center;
             gap: 10px;
             transition: transform 0.2s;
-        }
-
-        .gradiente-nospi:active {
-            transform: scale(0.95);
         }
 
         /* Botón de Inicio */
@@ -52,53 +47,7 @@
             cursor: pointer;
         }
 
-        /* Botón de WhatsApp */
+        /* AJUSTES DEL BOTÓN DE WHATSAPP */
         #btn-whatsapp {
             display: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            position: fixed;
-            bottom: 30px;
-            z-index: 1000;
-            width: 80%;
-            max-width: 350px;
-            font-size: 0.9em;
-        }
-    </style>
-</head>
-<body>
-
-    <div id="capa-inicio" onclick="comenzarMagia()">
-        <button class="boton-play gradiente-nospi">
-            <span>🔊</span> TOCAR PARA VER CON AUDIO
-        </button>
-        <p style="margin-top: 15px; color: #666; font-size: 0.9em;">Descubre la magia de Nospi</p>
-    </div>
-
-    <video id="videoNospi" playsinline>
-        <source src="video3.mp4" type="video/mp4">
-    </video>
-
-    <a href="https://wa.link/5wxed9" id="btn-whatsapp" class="gradiente-nospi">
-        <span>💬</span> ¡QUIERO ESTA MAGIA EN MI NEGOCIO!
-    </a>
-
-    <script>
-        const video = document.getElementById('videoNospi');
-        const capa = document.getElementById('capa-inicio');
-        const btn = document.getElementById('btn-whatsapp');
-
-        function comenzarMagia() {
-            capa.style.display = 'none';
-            video.style.display = 'block';
-            video.play();
-            
-            // Aparece a los 15 segundos
-            setTimeout(function() {
-                btn.style.display = 'flex'; // Usamos flex para centrar contenido
-            }, 15000);
-        }
-    </script>
-    
-</body>
-</html>
+            padding: 12px
