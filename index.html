@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,7 +14,7 @@
         }
 
         #videoNospi {
-            display: none; /* Se muestra solo al dar play */
+            display: none; 
             width: 100vw; height: auto; max-height: 85vh;
             object-fit: contain;
         }
@@ -23,26 +22,35 @@
         .gradiente-nospi {
             background: linear-gradient(90deg, #0045AD 0%, #00AEEF 50%, #7AC143 100%);
             border: none; color: white; text-decoration: none;
-            font-weight: bold; box-shadow: 0px 4px 15px rgba(0, 174, 239, 0.3);
+            font-weight: bold; box-shadow: 0px 4px 15px rgba(0, 174, 239, 0.4);
             display: flex; align-items: center; justify-content: center;
             gap: 10px; transition: transform 0.2s;
+            cursor: pointer; /* Indispensable para que sepa que es clickeable */
         }
 
+        /* Pantalla de inicio mejorada */
         #capa-inicio {
-            text-align: center; cursor: pointer; z-index: 2000;
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 5000; /* Siempre arriba al inicio */
         }
 
         .boton-play {
             padding: 18px 35px; border-radius: 50px;
-            font-size: 1.1em; cursor: pointer;
+            font-size: 1.1em;
         }
 
+        /* Botón de WhatsApp más pequeño y abajo */
         #btn-whatsapp {
-            display: none; /* Lo activa el script */
-            padding: 12px 20px; border-radius: 50px;
-            position: fixed; bottom: 10px; /* Bien abajo para no pisar el logo */
-            z-index: 3000; width: 65%; max-width: 250px;
-            font-size: 0.85em; text-align: center;
+            display: none; 
+            padding: 10px 15px; border-radius: 50px;
+            position: fixed; bottom: 10px; 
+            z-index: 6000; /* Más arriba que el video */
+            width: 60%; max-width: 220px;
+            font-size: 0.8em; text-align: center;
         }
     </style>
 </head>
@@ -59,7 +67,7 @@
         <source src="video3.mp4" type="video/mp4">
     </video>
 
-    <a href="https://wa.me/573104113333?text=Hola%20Wilfran,%20quiero%20la%20magia%20de%20Nospi" id="btn-whatsapp" class="gradiente-nospi">
+    <a href="https://wa.link/5wxed9" id="btn-whatsapp" class="gradiente-nospi">
         <span>💬</span> ¡QUIERO ESTA MAGIA!
     </a>
 
@@ -69,13 +77,15 @@
             const capa = document.getElementById('capa-inicio');
             const btn = document.getElementById('btn-whatsapp');
 
-            // 1. Ocultamos la capa de inicio
+            // 1. Desaparecer la capa por completo
+            capa.style.pointerEvents = 'none'; // Deja de recibir clics
             capa.style.display = 'none';
-            // 2. Mostramos el video y le damos play
+
+            // 2. Mostrar video y sonar
             video.style.display = 'block';
-            video.play();
+            video.play().catch(error => console.log("Error al reproducir:", error));
             
-            // 3. El botón aparece a los 15 segundos del clic
+            // 3. Cronómetro para el botón
             setTimeout(function() {
                 btn.style.display = 'flex';
             }, 15000);
@@ -83,3 +93,4 @@
     </script>
 </body>
 </html>
+
