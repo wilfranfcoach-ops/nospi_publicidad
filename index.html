@@ -4,66 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo Nospi - La Magia del Cobro</title>
-   <style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black; /* Fondo negro para que no se vea feo si sobra espacio */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-    #videoNospi {
-        width: 100vw;       /* Ocupa todo el ancho de la pantalla */
-        height: auto;       /* Mantiene la proporción original para no recortar el logo */
-        max-height: 80vh;   /* Deja espacio abajo para que el botón de WhatsApp no tape el logo */
-        object-fit: contain; /* Asegura que el video se vea completo sin recortes */
-    }
+        #videoNospi {
+            width: 100vw;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
 
-       #botonWhatsApp {
-        display: none; /* ESTA LÍNEA ES CLAVE: lo mantiene oculto al inicio */
-        /* ... el resto de tus estilos (colores, posición, etc.) ... */
-    }
-
-       /* ... otros estilos ... */
-
-    #botonWhatsApp {
-        display: none; /* ESTO ES LO QUE LO MANTIENE OCULTO AL CARGAR */
-        background-color: #25d366;
-        color: black;
-        padding: 15px 30px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        position: fixed;
-        bottom: 20px;
-        z-index: 100;
-    }
-</style>
-
-  
+        /* ESTILO ÚNICO PARA EL BOTÓN */
+        #btn-whatsapp {
+            display: none; /* Aquí se esconde al principio */
+            background-color: #25d366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            position: fixed;
+            bottom: 30px;
+            z-index: 1000;
+            font-family: sans-serif;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+        }
+    </style>
 </head>
 <body>
 
-
-
-
     <video id="videoNospi" autoplay muted playsinline>
         <source src="video3.mp4" type="video/mp4">
-        Tu navegador no soporta videos.
     </video>
 
-  
+    <a href="https://wa.me/57TU_NUMERO?text=Hola%20Wilfran,%20quiero%20la%20magia%20de%20Nospi" id="btn-whatsapp">
+        ¡QUIERO ESTA MAGIA EN MI NEGOCIO!
+    </a>
 
     <script>
         const video = document.getElementById('videoNospi');
         const btn = document.getElementById('btn-whatsapp');
 
-        // Aparecer el botón cuando falte poco para terminar (segundo 15)
+        // Aparecer el botón exactamente en el segundo 15
         video.ontimeupdate = function() {
             if (video.currentTime >= 15) {
                 btn.style.display = 'block';
