@@ -25,9 +25,8 @@
             object-fit: contain;
         }
 
-        /* ESTILO ÚNICO PARA EL BOTÓN */
         #btn-whatsapp {
-            display: none; /* Aquí se esconde al principio */
+            display: none; /* Inicia oculto */
             background-color: #25d366;
             color: white;
             padding: 15px 30px;
@@ -48,20 +47,20 @@
         <source src="video3.mp4" type="video/mp4">
     </video>
 
-    <a href="https://wa.me/57TU_NUMERO?text=Hola%20Wilfran,%20quiero%20la%20magia%20de%20Nospi" id="btn-whatsapp">
+    <a href="https://wa.me/573104113333?text=Hola%20Wilfran,%20quiero%20la%20magia%20de%20Nospi" id="btn-whatsapp">
         ¡QUIERO ESTA MAGIA EN MI NEGOCIO!
     </a>
 
     <script>
-        const video = document.getElementById('videoNospi');
-        const btn = document.getElementById('btn-whatsapp');
-
-        // Aparecer el botón exactamente en el segundo 15
-        video.ontimeupdate = function() {
-            if (video.currentTime >= 15) {
-                btn.style.display = 'block';
+        // Este script es un reloj independiente. No le pregunta al video.
+        // A los 15 segundos (15000ms) ejecuta la orden.
+        setTimeout(function() {
+            var elBoton = document.getElementById('btn-whatsapp');
+            if (elBoton) {
+                elBoton.style.display = 'block';
+                console.log("¡Botón activado por cronómetro!");
             }
-        };
+        }, 15000); 
     </script>
     
 </body>
